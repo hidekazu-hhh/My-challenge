@@ -51,4 +51,4 @@ README〜ER図作成：5/20
 本番リリース：6月末頃から7月上旬
 
 # ■画面遷移図URL
-https://www.figma.com/file/hgoVigc74xSQknOBHBtZ37/R-e%EF%BC%9ASTART?node-id=0%3A1
+https://www.figma.com/file/hgoVigc74xSQknOBHBtZ37/R-e-START?node-id=0%3A1
