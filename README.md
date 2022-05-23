@@ -53,4 +53,4 @@ README〜ER図作成：5/20
 # ■画面遷移図URL
 https://www.figma.com/file/hgoVigc74xSQknOBHBtZ37/R-e-START?node-id=0%3A1
 # ■ER図URL
-https://drive.google.com/file/d/1LJRrDlKdEvQ51QKrPNCh4W-5sKavhhrK/view?usp=sharing
+https://drive.google.com/file/d/1VMPYxfOQ3GGxsN64wiseiMsmFqtYXesI/view?usp=sharing
