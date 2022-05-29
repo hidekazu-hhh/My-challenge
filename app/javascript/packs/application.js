@@ -18,3 +18,4 @@ require("channels")
 import 'bootstrap'
 import '../stylesheets/application.scss'
 import '../stylesheets/style.css'
+import '../stylesheets/top.scss'
