@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+  users:
+    new:
+     title: 'ユーザー登録'
+     to_login_page: 'ログインページへ'
+  user_sessions:
+     new:
+        title: 'ログイン'
+        to_register_page: '登録ページへ'
+        password_forget: 'パスワードをお忘れの方はこちら'
+  posts:
+    index:
+        title: '学習'
+    new:
+        title: '学習の登録'
+    tags:
+        title: 'ブックマーク一覧'
+    profiles:
+    show:
+        title: 'プロフィール'
+
