@@ -1,5 +1,9 @@
 .simple-calendar {
- .day {}
+ .day {
+  border:5px solid whitesmoke;
+  height: 100px;
+  width: 100px;
+ }
  .wday-0 {}
  .wday-1 {}
  .wday-2 {}

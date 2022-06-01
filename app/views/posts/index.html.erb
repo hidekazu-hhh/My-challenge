@@ -1,8 +1,6 @@
 <h1><h1>Posts#index</h1>
 <p>マイページ</p>
 
-<h2>Post Actions --></h2>
-
 
 <%= link_to '学習を登録する', new_post_path, class: "btn btn-light"%>
 
@@ -16,16 +14,16 @@
     </li>
   <% end %>
 </ul>
-
+<div class="col-md-9">
 <%= month_calendar events: @posts do |date, posts| %>
   <%= date.day %>
-
   <% posts.each do |post| %>
     <div>
       <%= link_to post.tags.map(&:name).join(', '), post %>
     </div>
   <% end %>
 <% end %>
+</div>
 <%# <h2>Posts --></h2> %>
 <%# <% @posts.each do |post| %> %>
   <%# <div> %>
