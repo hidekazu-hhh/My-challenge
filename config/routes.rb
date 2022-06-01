@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
  
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create show]
+  resources :posts
+  resources :tags, only: %w[index show destroy]
 end
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

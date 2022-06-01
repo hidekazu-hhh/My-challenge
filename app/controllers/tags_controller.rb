@@ -9,7 +9,7 @@ class TagsController < ApplicationController
 
   def destroy
     Tag.find(params[:id]).destroy()
-    redirect_to tags_path
+    redirect_to posts_path
   end
 end
 

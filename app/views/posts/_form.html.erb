@@ -1,0 +1,9 @@
+<%= post.label :content, '学習内容' %><br>
+<%= post.text_area :content %><br>
+<%= post.label :start_time, '学習日' %><br>
+<%= post.date_select :start_time %><br>
+<%= post.label :tag, 'タグ' %><br>
+<%# Edit用に@post.tags.pluck(:name)でタグの配列を取得 %>
+<%= post.text_field :tag, value: @post.tags.pluck(:name) %><br>
+<small>スペースで区切ることで複数指定できます。</small><br>
+<%= post.submit %>

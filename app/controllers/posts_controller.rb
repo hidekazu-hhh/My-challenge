@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @tags = Tag.all
   end
 
   def show
@@ -13,13 +14,12 @@ class PostsController < ApplicationController
 
   def create
     # パラメーターを受け取り保存準備
-    @post = Post.new(post_params)
-    # Postを保存
+    @post = current_user.posts.new(post_params)       
     if @post.save
       # タグの保存
       @post.save_tags(params[:post][:tag])
       # 成功したらトップページへリダイレクト
-      redirect_to root_path
+      redirect_to posts_path
     else
       # 失敗した場合は、newへ戻る
       render :new
