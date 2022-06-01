@@ -48,3 +48,4 @@ gem "net-smtp"
 gem 'psych', '~> 3.1'
 gem 'sorcery'
 gem 'rails-i18n'
+gem 'simple_calendar', '~> 2.0'
