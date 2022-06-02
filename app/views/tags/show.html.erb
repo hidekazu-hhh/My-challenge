@@ -1,16 +1,33 @@
-<h1>Tags#show</h1><p>Find me in app/views/tags/show.html.erb</p><h2>Actions --></h2>
-<%= link_to 'Tags List', tags_path %>
-<%= link_to 'Delete', tag_path(@tag), method: :delete, data: {confirm: '関連づいた記事のタグが空になりますがタグを削除しますか？'} %>
-
-<h2>Tag --></h2>
+<h1>Tags#show</h1>
+<%# <%= link_to 'Tags List', tags_path %> %>
 
 <%# タグ名 %>
-<h3><%= @tag.name %></h3>
+<h3><%=@tag.name%></h3>
+<%= link_to 'タグの削除', tag_path(@tag), method: :delete, data: {confirm: '関連づいた学習内容のタグが空になりますがタグを削除しますか？'} %>
+
 <%# タグに関連付く記事一覧 %>
-<ul>
+<%# <ul>
   <% @tag.posts.each do |post| %>
-    <li>
-      <%= link_to post.content, post_path(post) %>
-    </li>
-  <% end %>
+    <%# <li> %>
+      <%# <%= link_to post.content, post_path(post) %> %>
+    <%# </li> %>
+  <%# <% end %> %> %>
 </ul>
+<div class="col-md-12">
+<div class="card border-secondary mb-3" style="max-width: 30rem;">
+  <% @tag.posts.each do |post| %>
+    
+ <div class="card-header">ユーザ名〇〇</div>
+  <div class="card-body text-dark">
+    <p class="card-text"><%= post.content%></p>
+   <br>
+    <%= link_to '編集', post_path(post) %>
+    <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
+    <br>
+    <br>
+     <%= l post.created_at, format: :long %>
+    <br>
+  </div>
+   <% end %>
+  </div>
+</div>

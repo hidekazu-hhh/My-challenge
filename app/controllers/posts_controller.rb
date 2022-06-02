@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def create
     # パラメーターを受け取り保存準備
-    @post = current_user.posts.new(post_params)       
+    @post = current_user.posts.new(post_params)    
     if @post.save
       # タグの保存
       @post.save_tags(params[:post][:tag])

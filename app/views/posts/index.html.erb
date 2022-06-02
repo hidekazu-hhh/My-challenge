@@ -1,25 +1,26 @@
-<h1><h1>Posts#index</h1>
-<p>マイページ</p>
+<%# <h1><h1>Posts#index</h1> %>
 
+<div class="text-right">
+<%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
+</div>
 
-<%= link_to '学習を登録する', new_post_path, class: "btn btn-light"%>
-
-<h2>Tag Actions --></h2>
 <%# <%= link_to 'Tags List', tags_path %> %>
-<ul>
+<div>
   <% @tags.each do |tag| %>
-    <li>
+    <p>
       <%# タグの名前と、関連付く記事数を表示 %>
       <%= link_to "#{tag.name} (  #{tag.posts.count} )", tag_path(tag) %>
-    </li>
+    </p>
   <% end %>
-</ul>
+</div>
+
+
 <div class="col-md-9">
 <%= month_calendar events: @posts do |date, posts| %>
   <%= date.day %>
   <% posts.each do |post| %>
     <div>
-      <%= link_to post.tags.map(&:name).join(', '), post %>
+      <%=post.tags.map(&:name).join(', ') %>
     </div>
   <% end %>
 <% end %>
