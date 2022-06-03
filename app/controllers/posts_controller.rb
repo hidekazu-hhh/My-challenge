@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   def index
     @posts = current_user.posts.all.includes(:user).order(created_at: :desc)
-    
+    @tags = current_user.tags.all
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
+    
   end
 
   def new

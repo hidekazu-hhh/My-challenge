@@ -6,7 +6,12 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true, length: { maximum: 255 }
+  has_many :post_tags, dependent: :destroy
+  has_many :tags,through: :post_tags
   has_many :posts, dependent: :destroy
+  
+  
+
 end
   
   

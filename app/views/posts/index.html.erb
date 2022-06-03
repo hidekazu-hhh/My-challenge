@@ -4,13 +4,19 @@
 <%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
 </div>
 
-<%# <%= link_to 'Tags List', tags_path %> %>
-<%# <div> %>
-  <%# <% @tags.each do |tag| %> %>
-      <%# <%= link_to "#{tag.name} (  #{tag.posts.count} )", tag_path(tag) %>
-    %>
-  <%# <% end %> %>
-<%# </div> %>
+<%= link_to 'Tags List', tags_path %>
+<div>
+  <% @tags.each do |tag| %>
+      <%= link_to "#{tag.name} (  #{tag.posts.count} )", tag_path(tag) %>
+  <% end %>
+</div>
+
+<div>
+  <% @posts.each do |post| %>
+      <%= link_to post.content ,post_path(post) %>
+  <% end %>
+</div>
+
 
 
 

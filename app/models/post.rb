@@ -37,10 +37,10 @@ class Post < ApplicationRecord
       # 条件のレコードを初めの1件を取得し1件もなければ作成する
       # find_or_create_by : https://railsdoc.com/page/find_or_create_by
       new_post_tag = Tag.find_or_create_by(name: new)
-
+      post_tags.new(user_id: user_id,tag_id: new_post_tag.id).save
       # tag_mapsテーブルにpost_idとtag_idを保存
       #   配列追加のようにレコードを渡すことで新規レコード作成が可能
-      self.tags << new_post_tag
+      # self.tags << new_post_tag
     end
     
   end
