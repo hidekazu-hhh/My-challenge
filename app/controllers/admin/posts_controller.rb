@@ -17,7 +17,7 @@ class Admin::PostsController < Admin::BaseController
       # タグの保存
       @post.save_tags(params[:post][:tag])
       # 成功したらトップページへリダイレクト
-      redirect_to posts_path
+      redirect_to admin_posts_path
     else
       # 失敗した場合は、newへ戻る
       render :new
@@ -34,7 +34,7 @@ class Admin::PostsController < Admin::BaseController
       # タグの更新
       @post.save_tags(params[:post][:tag])
       # 成功したら投稿記事へリダイレクト
-      redirect_to post_path(@post)
+      redirect_to admin_post_path(@post)
     else
       # 失敗した場合は、editへ戻る
       render :edit

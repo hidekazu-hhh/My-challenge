@@ -4,10 +4,10 @@ class TagsController < ApplicationController
   end
 
   def show
-    # @tag = Tag.find(params[:id])
-    user = User.find_by(id: current_user.id)
-    @tag = user.tags.find(params[:id])
-    @tag.posts = @tag.posts.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @tag = Tag.find(params[:id])
+    # user = User.find_by(id: current_user.id)
+    # @tag = user.tags.find(params[:id])
+    # @tag.posts = @tag.posts.where(user_id: current_user.id).includes(:user).order("created_at DESC")
     # タグに紐づいた現在のユーザーのみの投稿
   end
 
