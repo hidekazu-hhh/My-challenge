@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :tags,through: :post_tags
   has_many :posts, dependent: :destroy
   
-  
+  enum role: { general: 0, admin: 1 }
 
 end
   
