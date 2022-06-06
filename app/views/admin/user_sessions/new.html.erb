@@ -1,7 +1,7 @@
-div class="container">
+<div class="container">
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1><%= t '.title' %></h1>
+      <h3><%= '管理者ログイン' %></h3>
       <%= form_with url: admin_login_path, local: true do |f| %>
         <div class="form-group">
           <%= f.label :email, User.human_attribute_name(:email) %>
@@ -15,9 +15,6 @@ div class="container">
           <%= f.submit (t 'defaults.login'), class: 'btn btn-primary' %>
         </div>
       <% end %>
-      <div class='text-center'>
-        <%= link_to (t '.to_register_page'), new_user_path %>
-        <a href="#"><%= t '.password_forget' %></a>
-      </div>
     </div>
   </div>
+</div>
