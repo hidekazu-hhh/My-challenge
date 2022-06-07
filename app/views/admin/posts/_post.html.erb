@@ -1,6 +1,7 @@
 <tr>
       <td><%= post.id %></td>
       <td><%= post.content%></td>
+      <td><%= post.tags.map(&:name).join(', ')%></td>
       <td><%= post.user.decorate.full_name %></td>
       <td><%= l post.created_at, format: :long %></td>
      <td>

@@ -12,10 +12,10 @@
         <thead>
         <tr>
           <th scope="col"><%= Post.human_attribute_name(:id) %></th>
-          <th scope="col"><%= Post.human_attribute_name(:content) %></th>
+          <th style="width: 40%", scope="col"><%= Post.human_attribute_name(:content) %></th>
+          <th scope="col"><%= Post.human_attribute_name(:tag) %></th>
           <th scope="col"><%= Post.human_attribute_name(:user) %></th>
           <th scope="col"><%= Post.human_attribute_name(:created_at) %></th>
-          <th scope="col"></th>
         </tr>
         </thead>
         <tbody>

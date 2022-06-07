@@ -20,6 +20,10 @@
           <th scope="row"><%= Post.human_attribute_name(:content) %></th>
           <td><%= @post.content %></td>
         </tr>
+         <tr>
+          <th scope="row"><%= Post.human_attribute_name(:tag) %></th>
+          <td><%= @post.tags.map(&:name).join(', ')%></td>
+        </tr>
         <tr>
           <th scope="row"><%= Post.human_attribute_name(:created_at) %></th>
           <td><%= l @post.created_at, format: :long %></td>
