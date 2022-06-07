@@ -1,7 +1,7 @@
 <tr>
       <td><%= post.id %></td>
       <td><%= post.content%></td>
-      <%# <td><%= post.users.name %></td> %>
+      <td><%= post.user.decorate.full_name %></td>
       <td><%= l post.created_at, format: :long %></td>
      <td>
       <%= link_to t('defaults.show'), admin_post_path(post), class: 'btn btn-info' %>

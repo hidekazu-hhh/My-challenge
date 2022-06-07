@@ -13,13 +13,13 @@
           <td><%= @post.id %></td>
         </tr>
         <tr>
+          <th scope="row"><%= Post.human_attribute_name(:full_name) %></th>
+          <td><%= @post.user.decorate.full_name %></td>
+        </tr>
+        <tr>
           <th scope="row"><%= Post.human_attribute_name(:content) %></th>
           <td><%= @post.content %></td>
         </tr>
-        <%# <tr> %>
-          <%# <th scope="row"><%= Board.human_attribute_name(:full_name) %></th> %>
-          <%# <td><%= @board.user.decorate.full_name %></td> %>
-        <%# </tr> %>
         <tr>
           <th scope="row"><%= Post.human_attribute_name(:created_at) %></th>
           <td><%= l @post.created_at, format: :long %></td>
