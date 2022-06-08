@@ -1,0 +1,5 @@
+<h1>ポジティブワードの登録</h1>
+<%# <%= link_to 'マイページ', root_path %> %>
+<%= form_with  model: @positive_word, url: {controller: 'positive_words', action: 'create' } do |positive_word| %>
+  <%= render 'form', positive_word: positive_word %>
+<% end %>
