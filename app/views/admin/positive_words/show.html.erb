@@ -1,2 +1,34 @@
-<h1>Admin::PositiveWords#show</h1>
-<p>Find me in app/views/admin/positive_words/show.html.erb</p>
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <div class="text-right mb-3">
+        <%= link_to t('defaults.edit'), edit_admin_positive_word_path(@positive_word), class: 'btn btn-success' %>
+        <%= link_to t('defaults.delete'), admin_positive_word_path(@positive_word), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+      </div>
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row"><%= PositiveWord.human_attribute_name(:id) %></th>
+          <td><%= @positive_word.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= PositiveWord.human_attribute_name(:speaker) %></th>
+          <td><%= @positive_word.speaker %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= PositiveWord.human_attribute_name(:word) %></th>
+          <td><%= @positive_word.word %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= PositiveWord.human_attribute_name(:full_name) %></th>
+          <td><%= @positive_word.user.decorate.full_name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= PositiveWord.human_attribute_name(:created_at) %></th>
+          <td><%= l @positive_word.created_at, format: :long %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,11 @@
-<tr>
+  <tr>
       <td><%= positive_word.id %></td>
       <td><%= positive_word.word%></td>
       <td><%= positive_word.speaker%></td>
       <td><%= l positive_word.created_at, format: :long %></td>
      <td>
       <%= link_to t('defaults.show'), admin_positive_word_path(positive_word), class: 'btn btn-info' %>
-      <%# <%= link_to t('defaults.edit'), edit_admin_post_path(post), class: 'btn btn-success' %>
-      <%# <%= link_to t('defaults.delete'), admin_post_path(post), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %> %> %>
+      <%= link_to t('defaults.edit'), edit_admin_positive_word_path(positive_word), class: 'btn btn-success' %>
+      <%= link_to t('defaults.delete'), admin_positive_word_path(positive_word), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
       </td>
-    </tr>
+  </tr>
