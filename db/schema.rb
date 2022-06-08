@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_022423) do
+ActiveRecord::Schema.define(version: 2022_06_08_001157) do
+
+  create_table "positive_words", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "speaker", null: false
+    t.text "word", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_positive_words_on_user_id"
+  end
 
   create_table "post_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "post_id"
@@ -50,6 +59,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_022423) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "positive_words", "users"
   add_foreign_key "post_tags", "posts"
   add_foreign_key "post_tags", "tags"
   add_foreign_key "post_tags", "users"
