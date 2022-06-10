@@ -53,3 +53,4 @@ gem 'simple_calendar', '~> 2.0'
 gem 'pry-rails'
 gem 'enum_help'
 gem 'draper'
+gem 'whenever', require: false
