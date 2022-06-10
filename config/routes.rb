@@ -17,5 +17,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :edit, :update, :destroy]
     resources :positive_words
   end
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 end
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
