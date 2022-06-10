@@ -5,6 +5,8 @@ class Post < ApplicationRecord
 
   validates :content, presence: true, length: { maximum:65535}
 
+  scope :created_at_yesterday, -> { where(created_at: 1.day.ago.all_day) }
+
   def save_tags(tags)
 
     # タグをスペース区切りで分割し配列にする
