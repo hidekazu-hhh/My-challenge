@@ -1,7 +1,2 @@
-投稿数: <%= @created_post_count %>件
+総投稿数: <%= @created_post_count %>件
 
-<% if @post_created_at_yesterday.present? %>
-  昨日公開された記事数: <%= @post_created_at_yesterday.count %>件
-<% else %>
-  昨日投稿された記事はありません
-<% end %>
