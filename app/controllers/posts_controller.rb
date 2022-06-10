@@ -52,7 +52,8 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :start_time)
+    # params.require(:post).permit(:content, :start_time)
+    params.require(:post).permit(:content, :start_time, tag: [])
   end
 end
 

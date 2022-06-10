@@ -1,0 +1,16 @@
+<%# タグの一覧 %>
+<%# 投稿一覧 %>
+
+<%= link_to '学習一覧', posts_path, class: "btn btn-outline-secondary"%>
+
+<div class="text-right">
+<%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
+</div>
+
+<div>
+  <% @tags.each do |tag| %>
+      <%= link_to "#{tag.name}", tag_path(tag) %>
+  <% end %>
+</div>
+
+

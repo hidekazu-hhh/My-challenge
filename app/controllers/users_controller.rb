@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @tags = current_user.tags.all
+    @user = User.find(params[:id])
+   
+  end
+
   private
 
   def user_params

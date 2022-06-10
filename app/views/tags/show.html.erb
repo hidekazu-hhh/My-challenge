@@ -3,7 +3,7 @@
 
 <%# タグ名 %>
 <h3><%=@tag.name%></h3>
-<%= link_to 'タグの削除', tag_path(@tag), method: :delete, data: {confirm: '関連づいた学習内容のタグが空になりますがタグを削除しますか？'} %>
+<%# <%= link_to 'タグの削除', tag_path(@tag), method: :delete, data: {confirm: '関連づいた学習内容のタグが空になりますがタグを削除しますか？'} %> %>
 
 <%# タグに関連付く記事一覧 %>
 <%# <ul>
@@ -21,8 +21,10 @@
   <div class="card-body text-dark">
     <p class="card-text"><%= post.content%></p>
    <br>
-    <%= link_to '編集', post_path(post) %>
+  <% if current_user.id == post.user.id %>
+    <%= link_to '詳細', post_path(post) %>
     <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
+  <% end %>
     <br>
     <br>
      <%= l post.created_at, format: :long %>

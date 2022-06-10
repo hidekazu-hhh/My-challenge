@@ -3,5 +3,6 @@ class Tag < ApplicationRecord
   has_many :posts, through: :post_tags
   has_many :users, through: :post_tags
 
-  validates :name, uniqueness: true, presence: true
+  validates :name, uniqueness:{ case_sensitive: true }, presence: true
+  # ログの警告対策
 end
