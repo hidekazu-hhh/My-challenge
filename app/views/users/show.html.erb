@@ -7,10 +7,13 @@
 <%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
 </div>
 
-<div>
-  <% @tags.each do |tag| %>
-      <%= link_to "#{tag.name}", tag_path(tag) %>
+<div>タグの絵文字
+  <% @tags_user.each do |tag| %>
+  <%#自身に紐づいたタグを重複させず表示  %>
+     <span style="font-size:15px; margin:2px;">
+     <%= link_to "#{tag.name}", tag_path(tag) ,class:"btn btn-sm btn-outline-primary"%>
+     </span>
   <% end %>
 </div>
 
-
+   

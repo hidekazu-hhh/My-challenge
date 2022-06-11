@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @tags = current_user.tags.all
+    @tags_user = current_user.tags.all.distinct
+     # 自身に紐づいたタグを重複させず表示
     @user = User.find(params[:id])
    
   end
