@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum:65535}
 
   scope :created_at_yesterday, -> { where(created_at: 1.day.ago.all_day) }
+  scope :created_at_week_ago, -> {  where(created_at: 1.week.ago.beginning_of_day..Date.today) }
 
   def save_tags(tags)
 

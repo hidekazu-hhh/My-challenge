@@ -13,6 +13,7 @@ class User < ApplicationRecord
   
   enum role: { general: 0, admin: 1 }
 
+  scope :created_user_week_ago, -> {  where(created_at: 1.week.ago.beginning_of_day..Date.today) }
 end
   
   
