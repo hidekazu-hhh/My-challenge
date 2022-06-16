@@ -16,10 +16,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @tags_user = current_user.tags.all.distinct
      # 自身に紐づいたタグを重複させず表示
-    @user = User.find(params[:id])
-   
+    @posts = current_user.posts.all.includes(:user).order(created_at: :desc)
+    @study_record = current_user.posts.count
   end
 
   private

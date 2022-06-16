@@ -2,12 +2,6 @@
 <%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
 </div>
 <%# <%= link_to 'Tags List', tags_path %> %>
-<div>
-  <%# <% @posts.each do |post| %> %>
-      <%# <%= link_to post.content ,post_path(post) %> %>
-      <%# <td><%= link_to  post.tags.map(&:name).join(', '), post_path(post) %></td> %>
-  <%# <% end %> %>
-</div>
 
 <div>
   <% @tags.each do |tag| %>
@@ -15,18 +9,6 @@
   <% end %>
 </div>
 
-
-
-<div class="col-md-9">
-<%= month_calendar events: @posts do |date, posts| %>
-  <%= date.day %>
-  <% posts.each do |post| %>
-    <div>
-      <%=post.tags.map(&:name).join(', ') %>
-    </div>
-  <% end %>
-<% end %>
-</div>
 
 <h3>投稿一覧</h3>
 <div class="col-md-12">

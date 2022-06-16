@@ -1,18 +1,22 @@
-<h1>Tags#show</h1>
-<%# <%= link_to 'Tags List', tags_path %> %>
 
-<%# タグ名 %>
-<h3><%=@tag.name%></h3>
-<%# <%= link_to 'タグの削除', tag_path(@tag), method: :delete, data: {confirm: '関連づいた学習内容のタグが空になりますがタグを削除しますか？'} %> %>
+<%# <span style="font-size:15px; margin:2px;"> %>
+     <%# <%= link_to "#{@tag.name}",  '#' ,class:"btn btn-sm btn-outline-primary"%> %>
+<%# </span> %>
 
-<%# タグに関連付く記事一覧 %>
-<%# <ul>
-  <% @tag.posts.each do |post| %>
-    <%# <li> %>
-      <%# <%= link_to post.content, post_path(post) %> %>
-    <%# </li> %>
-  <%# <% end %> %> %>
-</ul>
+   <%# <h4 class="card-text">学習日数：<%= @count_post %> 日</h4> %>
+<div class="card border-dark mb-3" style="max-width: 25rem;">
+  <div class="card-body text-dark">
+    <h5 class="card-title">
+     <span style="font-size:15px; margin:2px;">
+     <%= link_to "#{@tag.name}", tag_path(tag) ,class:"btn btn-sm btn-outline-primary" %>
+     </span>
+    </h5>
+    <p class="card-text"> <h4 class ="mt-0">学習日数：<%= @count_post %>日</h4></p>
+  </div>
+</div>
+
+
+
 <div class="col-md-12">
 <div class="card border-secondary mb-3" style="max-width: 30rem;">
   <%  @tag_user_posts.each do |post| %>
@@ -25,7 +29,6 @@
     <%= link_to '詳細', post_path(post) %>
     <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
   <% end %>
-    <br>
     <br>
      <%= l post.created_at, format: :long %>
     <br>

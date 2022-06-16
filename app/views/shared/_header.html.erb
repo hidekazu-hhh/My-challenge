@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%# <%= image_tag 'logo.png' %> %>
+      <%=  'Re-START' %>
     <% end %>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,19 +28,6 @@
         </li>
         <li class="nav-item">
           <%= link_to 'ログアウト', logout_path, class: "nav-link", method: :delete %>
-        </li>
-
-        <%# <li class="nav-item dropdown dropdown-slide">
-          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
-            <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15' %>
-          </a>
-          <%# <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item">ユーザー名</div>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %> %> %>
-
-            <%# <%= link_to 'ログアウト', '#', class: 'dropdown-item' %> %>
-          </div>
         </li>
       </ul>
     </div>

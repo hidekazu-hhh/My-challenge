@@ -1,11 +1,23 @@
-<%# タグの一覧 %>
-<%# 投稿一覧 %>
-
-<%= link_to '学習一覧', posts_path, class: "btn btn-outline-secondary"%>
-
 <div class="text-right">
 <%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
 </div>
+
+
+<%# <div class="card border-dark mb-3" style="max-width: 25rem;"> %>
+  <%# <div class="card-header"><%= @user.name %></div> %>
+  <%# <div class="card-body text-dark"> %>
+    <%# <h5 class="card-title">学習記録</h5> %>
+    <%# <p class="card-text"> <h4 class ="mt-1">学習数：<%= @study_record %></h4> </p> %>
+      <%# <% @tags_user.each do |tag| %> %>
+       <%# <span style="font-size:15px; margin:2px;"> %>
+     <%# <%= link_to "#{tag.name}", tag_path(tag) ,class:"btn btn-sm btn-outline-primary"%> %>
+     <%# </span> %>
+     <%# <% end %> %>
+  <%# </div> %>
+<%# </div> %>
+
+
+ <%= link_to '学習一覧', posts_path, class: "btn btn-outline-secondary"%>
 
 <div>タグの絵文字
   <% @tags_user.each do |tag| %>
@@ -16,4 +28,13 @@
   <% end %>
 </div>
 
-   
+<div class="col-md-9">
+  <%= month_calendar events: @posts do |date, posts| %>
+  <%= date.day %>
+  <% posts.each do |post| %>
+    <div>
+      <%=post.tags.map(&:name).join(', ') %>
+    </div>
+  <% end %>
+  <% end %>
+</div>
