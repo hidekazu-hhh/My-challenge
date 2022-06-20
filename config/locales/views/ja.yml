@@ -3,6 +3,8 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    message:
+      require_login: 'ログインしてください'
   users:
     new:
       title: 'ユーザー登録'
@@ -22,3 +24,8 @@ ja:
   profiles:
     show:
       title: 'プロフィール'
+  enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'

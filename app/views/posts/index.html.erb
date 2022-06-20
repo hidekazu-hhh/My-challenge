@@ -1,0 +1,34 @@
+<div class="text-right">
+<%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
+</div>
+<%# <%= link_to 'Tags List', tags_path %> %>
+
+<div>
+  <% @tags.each do |tag| %>
+      <%= link_to "#{tag.name} (  #{tag.posts.count} )", tag_path(tag) %>
+  <% end %>
+</div>
+
+
+<h3>投稿一覧</h3>
+<div class="col-md-12">
+<div class="card border-secondary mb-3" style="max-width: 30rem;">
+<% @posts.each do |post| %>
+  <div class="card-header"><%= post.user.decorate.full_name %></div>
+  <div class="card-body text-dark">
+    <p class="card-text"><%= post.content%></p>
+   <br>
+  <% if current_user.id == post.user.id %>
+    <%= link_to '詳細', post_path(post) %>
+    <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
+  <% end %>
+    <br>
+     <%= l post.created_at, format: :long %>
+    <br>
+    <br>
+     <%= post.tags.map(&:name).join(', ')%>
+    <br>
+  </div>
+  <% end %>
+</div>
+</div>

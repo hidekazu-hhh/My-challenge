@@ -1,0 +1,38 @@
+
+<%# <span style="font-size:15px; margin:2px;"> %>
+     <%# <%= link_to "#{@tag.name}",  '#' ,class:"btn btn-sm btn-outline-primary"%> %>
+<%# </span> %>
+
+   <%# <h4 class="card-text">学習日数：<%= @count_post %> 日</h4> %>
+<%# <div class="card border-dark mb-3" style="max-width: 25rem;"> %>
+  <%# <div class="card-body text-dark"> %>
+    <%# <h5 class="card-title"> %>
+     <%# <span style="font-size:15px; margin:2px;"> %>
+     <%# <%= link_to "#{@tag.name}", tag_path(tag) ,class:"btn btn-sm btn-outline-primary" %> %>
+     <%# </span> %>
+    <%# </h5> %>
+    <%# <p class="card-text"> <h4 class ="mt-0">学習日数：<%= @count_post %>日</h4></p> %>
+  <%# </div> %>
+<%# </div> %>
+
+
+
+<div class="col-md-12">
+<div class="card border-secondary mb-3" style="max-width: 30rem;">
+  <%  @tag_user_posts.each do |post| %>
+    <%#タグに紐づく自身の投稿を全件取得%>
+ <div class="card-header"><%= post.user.decorate.full_name %></div>
+  <div class="card-body text-dark">
+    <p class="card-text"><%= post.content%></p>
+   <br>
+  <% if current_user.id == post.user.id %>
+    <%= link_to '詳細', post_path(post) %>
+    <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
+  <% end %>
+    <br>
+     <%= l post.created_at, format: :long %>
+    <br>
+  </div>
+   <% end %>
+  </div>
+</div>
