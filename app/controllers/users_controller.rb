@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  def index
+    @users =User.all
+
+  end
+ 
   def new
     @user = User.new
   end
@@ -17,10 +22,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @tags_user = current_user.tags.all.distinct
+    @tags_user = @user.tags.all.distinct
      # 自身に紐づいたタグを重複させず表示
-    @posts = current_user.posts.all.includes(:user).order(created_at: :desc)
-    @study_record = current_user.posts.count
+    @posts = @user.posts.all.includes(:user).order(created_at: :desc)
+    @study_record = @user.posts.count
   end
 
   private

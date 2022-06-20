@@ -3,21 +3,21 @@
 </div>
 
 
-<%# <div class="card border-dark mb-3" style="max-width: 25rem;"> %>
-  <%# <div class="card-header"><%= @user.name %></div> %>
-  <%# <div class="card-body text-dark"> %>
-    <%# <h5 class="card-title">学習記録</h5> %>
-    <%# <p class="card-text"> <h4 class ="mt-1">学習数：<%= @study_record %></h4> </p> %>
-      <%# <% @tags_user.each do |tag| %> %>
-       <%# <span style="font-size:15px; margin:2px;"> %>
-     <%# <%= link_to "#{tag.name}", tag_path(tag) ,class:"btn btn-sm btn-outline-primary"%> %>
-     <%# </span> %>
-     <%# <% end %> %>
-  <%# </div> %>
-<%# </div> %>
+<div class="card border-dark mb-3" style="max-width: 25rem;">
+  <div class="card-header"><%= @user.name %></div>
+  <div class="card-body text-dark">
+    <h5 class="card-title">学習記録</h5>
+    <p class="card-text"> <h4 class ="mt-1">学習数：<%= @study_record %></h4> </p>
+      <% @tags_user.each do |tag| %>
+       <span style="font-size:15px; margin:2px;">
+     <%= tag.name%>
+     </span>
+     <% end %>
+  </div>
+</div>
 
 
- <%= link_to '学習一覧', posts_path, class: "btn btn-outline-secondary"%>
+ <%# <%= link_to '学習一覧', posts_path, class: "btn btn-outline-secondary"%> %>
 
 <div>タグの絵文字
   <% @tags_user.each do |tag| %>
@@ -37,4 +37,27 @@
     </div>
   <% end %>
   <% end %>
+</div>
+
+
+<div class="col-md-12">
+<div class="card border-secondary mb-3" style="max-width: 30rem;">
+<% @posts.each do |post| %>
+  <div class="card-header"><%= post.user.decorate.full_name %></div>
+  <div class="card-body text-dark">
+    <p class="card-text"><%= post.content%></p>
+   <br>
+  <% if current_user.id == post.user.id %>
+    <%= link_to '詳細', post_path(post) %>
+    <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
+  <% end %>
+    <br>
+     <%= l post.created_at, format: :long %>
+    <br>
+    <br>
+     <%= post.tags.map(&:name).join(', ')%>
+    <br>
+  </div>
+  <% end %>
+</div>
 </div>

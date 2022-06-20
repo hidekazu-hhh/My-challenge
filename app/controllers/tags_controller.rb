@@ -7,9 +7,13 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     # user = User.find_by(id: current_user.id)
     # @tag = user.tags.find(params[:id])
-    @tag_user_posts  = @tag.posts.where(user_id: current_user.id).includes(:user).order("created_at DESC")
-    # タグに紐づいた現在のユーザーのみの投稿
-    @count_post =  @tag.posts.where(user_id: current_user.id).includes(:user).order("created_at DESC").count
+
+    @tag_user_posts  = @tag.posts.includes(:user).order("created_at DESC")
+   
+   # タグに紐づいた現在のユーザーのみの投稿
+    # @tag_user_posts  = @tag.posts.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+   
+    # @count_post =  @tag.posts.where(user_id: current_user.id).includes(:user).order("created_at DESC").count
   end
 
   def destroy

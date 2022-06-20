@@ -1,0 +1,19 @@
+<h3>ユーザー</h3>
+<div class="col-md-12">
+<div class="card border-secondary mb-3" style="max-width: 30rem;">
+<% @users.each do |user| %>
+  <div class="card-header"><%= link_to user.name , user_path(user) %></div>
+  <div class="card-body text-dark">
+    <p class="card-text"><%= %></p>
+   <br>
+  
+    <br>
+    <span style="font-size:15px; margin:2px;">
+      <%= user.tags.distinct.map(&:name).join(', ')%>
+    </span>
+   
+    <br>
+  </div>
+  <% end %>
+</div>
+</div>
