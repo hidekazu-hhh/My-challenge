@@ -28,9 +28,24 @@ class UsersController < ApplicationController
     @study_record = @user.posts.count
   end
 
+def edit
+  @user = User.find(params[:id])
+end
+
+def update
+  @user = User.find(params[:id])
+  if @user.update(user_params)
+    redirect_to user_path(@user), success: t('defaults.message.updated', item: User.model_name.human)
+  else
+    flash.now['danger'] = t('defaults.message.not_updated', item: User.model_name.human)
+    render :edit
+  end
+end
+
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :avatar_image, :avatar_image_cache)
   end
 end

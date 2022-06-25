@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_08_001157) do
+ActiveRecord::Schema.define(version: 2022_06_25_062515) do
 
   create_table "positive_words", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "speaker", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_001157) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role", default: 0, null: false
+    t.string "avatar_image"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
