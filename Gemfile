@@ -54,3 +54,5 @@ gem 'pry-rails'
 gem 'enum_help'
 gem 'draper'
 gem 'whenever', require: false
+gem 'carrierwave'
+gem 'mini_magick'
