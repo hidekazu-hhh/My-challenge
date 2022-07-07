@@ -26,7 +26,8 @@
   
     <br>
     <span style="font-size:15px; margin:2px;">
-      <%= user.tags.distinct.map(&:name).join(', ')%>
+       <i class="fa-solid fa-tag size"></i>
+      <%= user.tags.distinct.map(&:name).join(' ')%>
     </span>
    
     <br>

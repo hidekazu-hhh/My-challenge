@@ -3,7 +3,7 @@
    
     <%= link_to root_path, class: 'navbar-brand' do %>
       <%=  'Re-START' %>
-       <%= image_pack_tag 'media/images/logo4.jpg' %>
+       <%= image_pack_tag 'media/images/rocket3.jpeg' %>
     <% end %>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,13 +22,19 @@
           </div>
         </li>
         <li class="nav-item">
-          <%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %>
+          <%= link_to user_path(current_user), class: 'nav-link' do %>
+          <i class="fa-solid fa-house-user header"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'ユーザー', users_path, class: 'nav-link' %>
+          <%= link_to users_path, class: 'nav-link' do %>
+          <i class="fa-solid fa-users header"></i>
+           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'ログアウト', logout_path, class: "nav-link", method: :delete %>
+          <%= link_to logout_path, class: "nav-link", method: :delete do %>
+          <i class="fa-solid fa-arrow-right-from-bracket header" ></i>
+           <% end %>
         </li>
       </ul>
     </div>
