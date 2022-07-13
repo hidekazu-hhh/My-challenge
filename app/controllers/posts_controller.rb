@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = current_user.posts.all.includes(:user).order(created_at: :desc)
+    @posts = current_user.posts.all.includes(:user).order(created_at: :desc).page(params[:page])
     @tags = current_user.tags.all
   end
 
