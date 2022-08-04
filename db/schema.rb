@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_25_062515) do
+ActiveRecord::Schema.define(version: 2022_08_04_015744) do
 
   create_table "positive_words", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "speaker", null: false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2022_06_25_062515) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -65,4 +74,6 @@ ActiveRecord::Schema.define(version: 2022_06_25_062515) do
   add_foreign_key "post_tags", "tags"
   add_foreign_key "post_tags", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
