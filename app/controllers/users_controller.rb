@@ -24,7 +24,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @tags_user = @user.tags.all.distinct
      # 自身に紐づいたタグを重複させず表示
-    @posts = @user.posts.all.includes(:user).order(created_at: :desc).page(params[:page])
+     @q = @user.posts.all.ransack(params[:q])
+     @posts = @q.result(distinct: true).includes(%i[user tags]).order(created_at: :desc).page(params[:page])
     @study_record = @user.posts.count
   end
 

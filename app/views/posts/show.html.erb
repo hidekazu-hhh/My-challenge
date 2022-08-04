@@ -1,22 +1,14 @@
-<h1>Posts#show</h1>
 
-<h3>Tags --></h3>
-<ul>
+
+ <i class="fa-solid fa-tag size"></i>
+
   <%# 該当のPostからアソシエーションでタグを取得 %>
   <% @post.tags.each do |tag| %>
     <%# タグを展開 %>
-    <li>
-      <%= link_to tag.name, tag_path(tag) %>
-      <%# <%= tag.posts.map(&:content).join(', ') %> %>
-    </li>
+       <%= link_to "#{tag.name}", tag_path(tag) ,class:"btn btn-sm  btn-outline-secondary"%>
   <% end %>
-</ul>
 
-<h3>Content --></h3>
 <%# simple_formatは、pタグで囲み、改行コードをbrに変換する %>
-<%= simple_format(@post.content) %>
-<h2>Actions --></h2>
-<%= link_to 'Top', root_path %>
 <div class="col-md-12">
 <div class="card border-secondary mb-3" style="max-width: 30rem;">
     <%#タグに紐づく投稿の全件取得%>
@@ -24,8 +16,16 @@
   <div class="card-body text-dark">
     <p class="card-text"><%= @post.content%></p>
    <br>
-    <%= link_to '編集', edit_post_path(@post) %>
-    <%= link_to '削除', post_path(@post), method: :delete, data: {confirm: '削除しますか？'} %>
+    <span style="font-size:15px; margin:2px;">
+    <%= link_to edit_post_path(@post) do %>
+     <i class="fa-regular fa-pen-to-square size"></i>
+    </span>
+    <% end %>
+     <span style="font-size:15px; margin:2px;">
+    <%= link_to post_path(@post), method: :delete, data: {confirm: '削除しますか？'} do %>
+      <i class="fa-regular fa-trash-can size"></i>
+       </span>
+     <% end %>
     <br>
     <br>
      <%= l @post.created_at, format: :long %>

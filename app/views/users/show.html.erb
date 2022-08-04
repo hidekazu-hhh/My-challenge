@@ -63,7 +63,7 @@
   <% end %>
 </div>
 
-
+<%= render 'search_form', url:user_path(@user), q: @q %>
 <div class="col-md-12">
 <div class="card border-secondary mb-3" style="max-width: 30rem;">
 <% @posts.each do |post| %>

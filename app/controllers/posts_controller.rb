@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = current_user.posts.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @q = Post.ransack(params[:q])
+    @posts =@q.result(distinct: true).includes(%i[user tags]).order(created_at: :desc).page(params[:page])
     @tags = current_user.tags.all
   end
 
