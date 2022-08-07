@@ -1,19 +1,39 @@
 <div class="cover-user-index">
   <div class="container">
-    <div class="row justify-content-center">
-      <h1 class="font-weight-normal mt-5 mb-5">フォロー一覧</h1>
+    <div class="row justify-content-left">
+      <h3 class="font-weight-normal mt-5 mb-5">フォロー</h3>
     </div>
     <div class="row justify-content-center">
       <% @users.each do |user| %>
       <div class="one-post card w-100">
+         <% if user.avatar_image.url.present? %>
+        <div class='mt-3 mb-3'>
+          <%= image_tag user.avatar_image.url,
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '65x65' %>
+        </div>
+         <% else %>
+         <div class='mt-3 mb-3'>
+         <%= image_pack_tag 'media/images/sample.jpeg',
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '65x65' %>
+        </div>
+        <% end %>
         <%= link_to user_path(user) do %>
-        <p class="caption h4"><%= user.name %></p>
+        <p class="caption h"><%= user.name %></p>
+        
         <div class="d-flex">
-          profile-img" %>
+          <% end %>
           
         </div>
-        <p class="caption"><%= "#{user.posts.count} 投稿" %></p>
-        <% end %>
+        <p class="caption"><%= "投稿 #{user.posts.count} " %></p>
+      
+         <span style="font-size:15px; margin:2px;">
+       <i class="fa-solid fa-tag size"></i>
+      <%= user.tags.distinct.map(&:name).join(' ')%>
+    </span>
       </div>
       <% end %>
     </div>

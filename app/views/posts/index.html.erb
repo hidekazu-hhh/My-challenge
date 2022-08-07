@@ -1,7 +1,7 @@
 <div class="text-right">
 <%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
 </div>
-<%# <%= link_to 'Tags List', tags_path %> %>
+
 
 <div>
   <% @tags.each do |tag| %>
@@ -23,7 +23,7 @@
     <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
   <% end %>
     <br>
-     <%= l post.created_at, format: :long %>
+     <%= post.created_at.strftime('%Y/%m/%d') %>
     <br>
     <br>
      <%= post.tags.map(&:name).join(', ')%>

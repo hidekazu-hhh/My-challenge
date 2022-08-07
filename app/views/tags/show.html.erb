@@ -1,22 +1,10 @@
 
-<%# <span style="font-size:15px; margin:2px;"> %>
-     <%# <%= link_to "#{@tag.name}",  '#' ,class:"btn btn-sm btn-outline-primary"%> %>
-<%# </span> %>
 
-   <%# <h4 class="card-text">学習日数：<%= @count_post %> 日</h4> %>
-<%# <div class="card border-dark mb-3" style="max-width: 25rem;"> %>
-  <%# <div class="card-body text-dark"> %>
-    <%# <h5 class="card-title"> %>
-     <%# <span style="font-size:15px; margin:2px;"> %>
-     <%# <%= link_to "#{@tag.name}", tag_path(tag) ,class:"btn btn-sm btn-outline-primary" %> %>
-     <%# </span> %>
-    <%# </h5> %>
-    <%# <p class="card-text"> <h4 class ="mt-0">学習日数：<%= @count_post %>日</h4></p> %>
-  <%# </div> %>
-<%# </div> %>
-
-
-
+  <span style="font-size:15px; margin:2px;">
+   <i class="fa-solid fa-tag size"></i>
+     <%= @tag.name%>
+  </span>
+  
 <div class="col-md-12">
 <div class="card border-secondary mb-3" style="max-width: 30rem;">
   <%  @tag_user_posts.each do |post| %>
@@ -30,7 +18,7 @@
     <%= link_to '削除', post_path(post), method: :delete, data: {confirm: '削除しますか？'} %>
   <% end %>
     <br>
-     <%= l post.created_at, format: :long %>
+    <%= post.created_at.strftime('%Y/%m/%d') %>
     <br>
   </div>
    <% end %>
