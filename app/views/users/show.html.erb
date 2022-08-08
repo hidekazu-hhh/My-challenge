@@ -97,25 +97,31 @@
     <i class="fa-solid fa-tag size"></i>
      <%= post.tags.map(&:name).join(', ')%>
     <br>
-  <% if current_user.id == post.user.id %>
+     <br>
      <div class='mr10 float-left'>
-    <span style="font-size:15px; margin:2px;">
+      <span style=" margin-right:10px;">
+    <%= link_to post_path(post) do %>
+     <i class="fa-regular fa-file-lines size"></i>
+       </span>
+      <% end %>
+    </div>
+     <span style="margin:10px;">
       <%= link_to "#" do %>
      <i class="fa-regular fa-comment size"></i>
     </span>
      <% end %>
-     <span style="font-size:15px; margin:2px;">
-    <%= link_to edit_post_path(post) do %>
-     <i class="fa-regular fa-pen-to-square size"></i>
-    </span>
+    <% if post.favorited_by?(current_user) %>
+    <%= link_to post_favorites_path(post), method: :delete do %>
+     <i class="fa-solid fa-heart size"></i>
+    <% end %>
+    
+     <%= post.favorites.count %> 
+    <% else %>
+     <%= link_to post_favorites_path(post), method: :post do %>
+       <i class="fa-regular fa-heart size"></i>
      <% end %>
-      <span style="font-size:15px; margin:2px;">
-    <%= link_to post_path(post), method: :delete, data: {confirm: '削除しますか？'} do %>
-      <i class="fa-regular fa-trash-can size"></i>
-       </span>
-    </div>
-     <% end %>
-  <% end %>
+      <%= post.favorites.count %> 
+    <% end %>
   </div>
   <% end %>
 </div>

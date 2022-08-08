@@ -15,20 +15,27 @@
  <div class="card-header"><%= @post.user.decorate.full_name %></div>
   <div class="card-body text-dark">
     <p class="card-text"><%= @post.content%></p>
+     <br>
+      <%= @post.created_at.strftime('%Y/%m/%d') %>
+    <br>
    <br>
-    <span style="font-size:15px; margin:2px;">
+   <% if current_user.id == @post.user.id %>
+    <span style=" margin-right:10px;">
     <%= link_to edit_post_path(@post) do %>
      <i class="fa-regular fa-pen-to-square size"></i>
     </span>
     <% end %>
-     <span style="font-size:15px; margin:2px;">
+     <span style=" margin:2px;">
     <%= link_to post_path(@post), method: :delete, data: {confirm: '削除しますか？'} do %>
       <i class="fa-regular fa-trash-can size"></i>
        </span>
      <% end %>
+     <% end %>
     <br>
     <br>
-     <%= l @post.created_at, format: :long %>
+      <%= link_to favorite_post_path(@post), class: "btn btn-light" do %>
+     いいね <%= @post.favorites.count %> 
+      <% end %>
     <br>
   </div>
   </div>

@@ -9,6 +9,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     
   end
+  def favorite
+    @post = Post.find(params[:id])
+    favorites= Favorite.all.where(post_id: @post.id).pluck(:user_id)
+    @favorite_users = User.find(favorites)
+ end
 
   def new
     @post = Post.new

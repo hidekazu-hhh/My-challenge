@@ -2,7 +2,11 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
+  has_many :favorites, dependent: :destroy
 
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end  
   validates :content, presence: true, length: { maximum:65535}
 
   scope :created_at_yesterday, -> { where(created_at: 1.day.ago.all_day) }

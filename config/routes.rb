@@ -10,8 +10,14 @@ Rails.application.routes.draw do
     end
     resource :relationships, only: [:create, :destroy]
   end
-  resources :posts
+  resources :posts do
+    member do
+      get :favorite
+    end
+    resource :favorites, only: [:create, :destroy]
+  end
   resources :tags, only: %w[index show destroy]
+
 
   namespace :admin do
     root 'dashboards#index'
