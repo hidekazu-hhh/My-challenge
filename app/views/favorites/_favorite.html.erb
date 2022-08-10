@@ -1,0 +1,15 @@
+ <% if post.favorited_by?(current_user) %>
+   <span style="margin:10px;">
+    <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+     <i class="fa-solid fa-heart size"></i>
+   </span>
+    <% end %>
+     <%= post.favorites.count %> 
+    <% else %>
+    <span style="margin:10px;">
+     <%= link_to post_favorites_path(post), method: :post, remote: true do %>
+       <i class="fa-regular fa-heart size"></i>
+    </span>
+     <% end %>
+      <%= post.favorites.count %> 
+  <% end %>

@@ -98,33 +98,27 @@
      <%= post.tags.map(&:name).join(', ')%>
     <br>
      <br>
-     <div class='mr10 float-left'>
+    <div class='mr10 float-left'>
       <span style=" margin-right:10px;">
-    <%= link_to post_path(post) do %>
-     <i class="fa-regular fa-file-lines size"></i>
-       </span>
+        <%= link_to post_path(post) do %>
+        <i class="fa-regular fa-file-lines size"></i>
+      </span>
       <% end %>
     </div>
-     <span style="margin:10px;">
+     <div class='mr10 float-left'>
+    <span style="margin:10px;">
       <%= link_to "#" do %>
-     <i class="fa-regular fa-comment size"></i>
+      <i class="fa-regular fa-comment size"></i>
     </span>
-     <% end %>
-    <% if post.favorited_by?(current_user) %>
-    <%= link_to post_favorites_path(post), method: :delete do %>
-     <i class="fa-solid fa-heart size"></i>
-    <% end %>
-    
-     <%= post.favorites.count %> 
-    <% else %>
-     <%= link_to post_favorites_path(post), method: :post do %>
-       <i class="fa-regular fa-heart size"></i>
-     <% end %>
-      <%= post.favorites.count %> 
-    <% end %>
+    </div>
+      <% end %>
+   <div class='mr10 float-left'>
+    <div id="favorite_btn_<%= post.id %>">
+     <%= render partial: 'favorites/favorite',locals: {post: post} %>
+    </div>
+    </div>
   </div>
   <% end %>
 </div>
 <%= paginate @posts, theme: 'twitter-bootstrap-4' %>
-
 </div>
