@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get :favorite
     end
     resource :favorites, only: [:create, :destroy]
+    resources :comments, only: %i[create destroy], shallow: true
   end
   resources :tags, only: %w[index show destroy]
 

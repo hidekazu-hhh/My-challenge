@@ -7,8 +7,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
+
   def favorite
     @post = Post.find(params[:id])
     favorites= Favorite.all.where(post_id: @post.id).pluck(:user_id)

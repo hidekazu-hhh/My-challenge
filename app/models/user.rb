@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :tags,through: :post_tags
   has_many :posts, dependent: :destroy
   has_many :positive_words, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
@@ -20,8 +21,12 @@ class User < ApplicationRecord
   mount_uploader :avatar_image, AvatarImageUploader
   scope :created_user_week_ago, -> {  where(created_at: 1.week.ago.beginning_of_day..Date.today) }
 
+  def own?(object)
+    id == object.user_id
+  end
+
    # ユーザーをフォローする
-   def follow(user_id)
+  def follow(user_id)
     follower.create(followed_id: user_id)
   end
 
