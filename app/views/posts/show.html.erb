@@ -12,7 +12,24 @@
 <div class="col-md-8 offset-lg-1">
 <div class="card border-secondary mb-3" style="max-width: 30rem;">
     <%#タグに紐づく投稿の全件取得%>
- <div class="card-header"><%= @post.user.decorate.full_name %></div>
+ <div class="card-header"> <% if @user.avatar_image.url.present? %>
+        <div class='mt-3 mb-3'>
+          <%= image_tag @user.avatar_image.url,
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '65x65' %>
+        </div>
+         <% else %>
+         <div class='mt-3 mb-3'>
+         <%= image_pack_tag 'media/images/sample.jpeg',
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '65x65' %>
+        </div>
+      <% end %>
+      <%= @post.user.decorate.full_name %>
+      </div>
+ 
   <div class="card-body text-dark">
     <p class="card-text"><%= @post.content%></p>
      <br>
@@ -61,8 +78,9 @@
   </div>
 
   <!-- コメントフォーム -->
+  <% unless current_user.guest? %>
   <%= render 'comments/form', { post: @post, comment: @comment } %>
-
+  <% end %>
   <!-- コメントエリア -->
   <%= render 'comments/comments', { comments: @comments } %>
 </div>

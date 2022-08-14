@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create index show]
+  skip_before_action :require_login, only: %i[new create show]
   def index
     @users =User.all
 
@@ -38,7 +38,7 @@ end
 def update
   @user = User.find(params[:id])
   if @user.update(user_params)
-    redirect_to user_path(@user), success: t('defaults.message.updated', item: User.model_name.human)
+    redirect_to user_path(@user)
   else
     flash.now['danger'] = t('defaults.message.not_updated', item: User.model_name.human)
     render :edit

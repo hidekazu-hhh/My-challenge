@@ -1,7 +1,8 @@
+<% unless current_user.guest? %>
 <div class="text-right">
 <%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
 </div>
-
+<% end %>
 
 <div class="card border-dark mb-3" style="max-width: 25rem;">
   <div class="card-header">
@@ -41,7 +42,7 @@
      <% end %>
    </div>
      <div class="text-right">
-      <% if @user.id == current_user.id %>
+      <% if @user.id == current_user.id  %>
        <%= link_to edit_user_path(@user) do %>
         <i class="fa-solid fa-gear size"></i>
        <% end %>
