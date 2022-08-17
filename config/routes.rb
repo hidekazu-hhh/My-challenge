@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'static_pages#top'
+  root 'static_pages#page'
+  get 'static_pages/top'
+  get 'static_pages/start_page'
+  get 'static_pages/hope'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
