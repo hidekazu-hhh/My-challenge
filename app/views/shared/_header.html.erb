@@ -31,6 +31,14 @@
           <i class="fa-solid fa-users header"></i>
            <% end %>
         </li>
+        <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle icon-bell"></i>
+        <% end %>
+        <li>
+        <%= link_to notifications_path, class: "nav-link" do %>
+        </li>
+         <i class="fa-solid fa-bell bell"></i>
+         <% end %>
         <li class="nav-item">
           <%= link_to logout_path, class: "nav-link", method: :delete do %>
           <i class="fa-solid fa-arrow-right-from-bracket header" ></i>

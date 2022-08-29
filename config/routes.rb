@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy], shallow: true
   end
   resources :tags, only: %w[index show destroy]
-
+  resources :notifications, only: :index
 
   namespace :admin do
     root 'dashboards#index'
