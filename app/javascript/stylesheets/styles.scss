@@ -493,7 +493,7 @@ progress {
   font-weight: 300;
 }
 .lead2 {
-  font-size: 1.60rem;
+  font-size: 1.40rem;
   font-weight: 300;
 }
 
@@ -542,13 +542,13 @@ progress {
 }
 
 .display-5 {
-  font-size: calc(1.600rem + 5.1vw);
+  font-size: calc(1.800rem + 5.1vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-5 {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 }
 
@@ -7847,7 +7847,7 @@ textarea.form-control-lg {
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+  background-color:#f8f9fa !important;
 }
 
 .bg-black {

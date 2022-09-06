@@ -26,27 +26,14 @@
   }
 }
 .icon-bell {
-  position: absolute; 
-  right:50px; 
-  bottom:30px;
+  margin-bottom: 20px;
   color: gold;
   
-  @media screen and (max-width: 950px) {
-  position: absolute; 
-  bottom:70px;
-  left:0px;
-  margin:auto;
-  color: gold;
- 
-  }
 }
 
 .bell {
-  position: relative; 
+  margin-bottom: 3px;
+  margin-right: 11px;
   color: gray;
   font-size:1.5em; 
-  @media screen and (max-width: 950px) {
-  position: relative; 
-  font-size:1.5em; 
-  }
 }

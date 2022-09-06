@@ -1,5 +1,5 @@
 
-
+<div style="margin: 20px; margin-left:50px;">
  <i class="fa-solid fa-tag size"></i>
 
   <%# 該当のPostからアソシエーションでタグを取得 %>
@@ -7,9 +7,9 @@
     <%# タグを展開 %>
        <%= link_to "#{tag.name}", tag_path(tag) ,class:"btn btn-sm  btn-outline-secondary"%>
   <% end %>
-
+</div>
 <%# simple_formatは、pタグで囲み、改行コードをbrに変換する %>
-<div class="col-md-8 offset-lg-1">
+<div style="margin-left: 150px;">
 <div class="card border-secondary mb-3" style="max-width: 30rem;">
     <%#タグに紐づく投稿の全件取得%>
  <div class="card-header"> <% if @user.avatar_image.url.present? %>

@@ -27,16 +27,17 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to users_path, class: 'nav-link' do %>
+          <%= link_to posts_path, class: 'nav-link' do %>
           <i class="fa-solid fa-users header"></i>
            <% end %>
         </li>
-        <% if unchecked_notifications.any? %>
-        <i class="fa fa-circle icon-bell"></i>
-        <% end %>
+       
         <li>
         <%= link_to notifications_path, class: "nav-link" do %>
         </li>
+         <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle icon-bell"></i>
+        <% end %>
          <i class="fa-solid fa-bell bell"></i>
          <% end %>
         <li class="nav-item">

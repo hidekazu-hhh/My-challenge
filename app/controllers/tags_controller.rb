@@ -8,7 +8,7 @@ class TagsController < ApplicationController
     # user = User.find_by(id: current_user.id)
     # @tag = user.tags.find(params[:id])
 
-    @tag_user_posts  = @tag.posts.includes(:user).order("created_at DESC")
+    @tag_user_posts  = @tag.posts.includes(:user).order("created_at DESC").page(params[:page])
    
    # タグに紐づいた現在のユーザーのみの投稿
     # @tag_user_posts  = @tag.posts.where(user_id: current_user.id).includes(:user).order("created_at DESC")
