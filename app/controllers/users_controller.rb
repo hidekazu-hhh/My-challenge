@@ -23,10 +23,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tags_user = @user.tags.all.distinct
+    @tags_user_tag = @user.tags.group(:name).count
+
      # 自身に紐づいたタグを重複させず表示
      @q = @user.posts.all.ransack(params[:q])
      @posts = @q.result(distinct: true).includes(%i[user tags]).order(created_at: :desc).page(params[:page])
-    @study_record = @user.posts.count
+    @study_record = @user.tags.count
     @following_users = @user.following_user
     @follower_users = @user.follower_user
   end
@@ -55,6 +57,18 @@ def followers
   @users = user.follower_user.page(params[:page]).per(3).reverse_order
 end
 
+
+def  calendar
+  @user = User.find(params[:id])
+  @month_record =@user.posts.group("MONTH(start_time)")
+ 
+ 
+  @study_record = @user.tags.count
+  @tags_user_tag = @user.tags.group(:name).order('count_name desc').count(:name)
+
+  @q = @user.posts.all.ransack(params[:q])
+  @posts = @q.result(distinct: true).includes(%i[user tags]).order(created_at: :desc).page(params[:page])
+end
   private
 
   def user_params

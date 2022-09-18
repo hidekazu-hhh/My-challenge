@@ -30,7 +30,7 @@ class UserSessionsController < ApplicationController
     password_confirmation: 'password'
     )
     auto_login(@guest_user)
-    redirect_to root_path, success: 'ゲストとしてログインしました'
+    redirect_to root_path, notice: 'ゲストとしてログインしました'
   end
 
 end

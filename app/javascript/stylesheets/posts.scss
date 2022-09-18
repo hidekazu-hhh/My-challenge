@@ -3,8 +3,12 @@
   border:5px solid whitesmoke;
   height: 100px;
   width: 100px;
+ 
+  @media (max-width: 655px) {
+      font-size: 1px;
+  }
+  
  }
-
  .has-events {
    background: #cfe6f0;
  }

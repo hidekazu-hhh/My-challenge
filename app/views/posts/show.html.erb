@@ -1,5 +1,5 @@
 
-<div style="margin: 20px; margin-left:50px;">
+<div style="margin-bottom 20px;">
  <i class="fa-solid fa-tag size"></i>
 
   <%# 該当のPostからアソシエーションでタグを取得 %>
@@ -9,7 +9,7 @@
   <% end %>
 </div>
 <%# simple_formatは、pタグで囲み、改行コードをbrに変換する %>
-<div style="margin-left: 150px;">
+
 <div class="card border-secondary mb-3" style="max-width: 30rem;">
     <%#タグに紐づく投稿の全件取得%>
  <div class="card-header"> <% if @user.avatar_image.url.present? %>
@@ -31,7 +31,7 @@
       </div>
  
   <div class="card-body text-dark">
-    <p class="card-text"><%= @post.content%></p>
+    <p class="card-text"><%== simple_format(text_url_to_link(@post.content), {}, sanitize: false) %></p>
      <br>
       <%= @post.created_at.strftime('%Y/%m/%d') %>
     <br>

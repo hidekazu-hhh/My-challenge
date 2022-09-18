@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">今月</h5>
+        <p class="card-text"> <h4 class ="mt-1">学習数：<%= @month_record.count[Date.today.month] %></h4></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">累計</h5>
+        <p class="card-text"><h4 class ="mt-1">学習数：<%= @study_record %></h4></p>
+        <i class="fa-solid fa-tag size"></i>
+     <span style="font-size:15px; margin:2px;">
+     <% @tags_user_tag.each do |key,value| %>
+      <br><%= "#{key}" %> <%= "(#{value})" %>
+    </span>
+    <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="simple-calendar mb-14">
+<%#カレンダー %>
+<div class="col-md-16">
+  <%= month_calendar events: @posts do |date, posts| %>
+  <%= date.day %>
+  <% posts.each do |post| %>
+    <div>
+      <%=post.tags.map(&:name).join(', ') %>
+    </div>
+  <% end %>
+  <% end %>
+</div>
+</div>

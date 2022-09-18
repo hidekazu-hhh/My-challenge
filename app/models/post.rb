@@ -13,7 +13,7 @@ class Post < ApplicationRecord
 
   scope :created_at_yesterday, -> { where(created_at: 1.day.ago.all_day) }
   scope :created_at_week_ago, -> {  where(created_at: 1.week.ago.beginning_of_day..Date.today) }
-
+ 
   def save_tags(tags)
 
     # タグをスペース区切りで分割し配列にする

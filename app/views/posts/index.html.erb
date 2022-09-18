@@ -1,17 +1,10 @@
-<div style="margin:20px 20px; margin-left:120px">
-<div class="text-left">
-<%= link_to '学習を登録する', new_post_path, class: "btn btn-outline-secondary"%>
-</div>
-</div>
-<div style="margin-left: 100px;">
-<div class="col-md-12" >
+
 <%# <h4>投稿</h4> %>
 <%= render 'search_form', url: posts_path, q: @q %>
 </div>
 </div>
-<div style="margin:100px;">
-<div class="col-md-12">
-<div class="card border-secondary mb-5" style="max-width: 45rem;">
+
+<div class="card border-secondary mb-5" style="max-width: 30rem;">
 <% @posts.each do |post| %>
   <div class="card-header">
    <% if post.user.avatar_image.url.present? %>
@@ -29,10 +22,11 @@
                         size: '50x50' %>
         </div>
       <% end %>
-  <%=link_to  post.user.decorate.full_name, user_path(post.user) %>
+  <%=link_to  post.user.decorate.full_name, user_path(post.user), class:  "link-secondary" %>
   </div>
     <div class="card-body text-dark">
-    <p class="card-text"><%= simple_format(post.content)%></p>
+  
+    <p class="card-text"><%== simple_format(text_url_to_link(post.content), {}, sanitize: false) %></p>
    <br>
     <br>
      <%= post.created_at.strftime('%Y/%m/%d') %>
