@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/guest_login', to: 'user_sessions#guest_login'
   resources :users do
     member do
-      get :follows, :followers, :calendar
+      get :follows, :followers, :calendar, :chart, :column_chart
     end
     resource :relationships, only: [:create, :destroy]
   end

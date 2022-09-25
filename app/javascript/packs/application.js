@@ -20,3 +20,4 @@ import '../stylesheets/application.scss'
 import '../stylesheets/style.css'
 import '../stylesheets/top.scss'
 import '@fortawesome/fontawesome-free/js/all'
+import "chartkick/chart.js"

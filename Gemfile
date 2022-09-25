@@ -59,3 +59,5 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'ransack'
+gem "chartkick"
+gem "groupdate"

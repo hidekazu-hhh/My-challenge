@@ -31,8 +31,12 @@
           <%= f.hidden_field :avatar_image_cache %>
         </div>
          <%= f.submit class: 'btn btn-outline-secondary' %>
+         
       <% end %>
-
+       <% if current_user.id == @user.id %>
+      <div class="text-right">
+        <%= link_to '退会する', user_path(@user), method: :delete, data: { confirm: ('今までの記録は全て削除されます。退会しますか？') }, class: 'btn btn-outline-danger' %>
+        <% end %>
     </div>
   </div>
 </div>

@@ -1,0 +1,23 @@
+<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">累計</h5>
+        <p class="card-text"><h5 class ="mt-1">学習数：<%= @study_record %></h5></p>
+        <i class="fa-solid fa-tag size"></i>
+     <span style="font-size:15px; margin:2px;">
+     <% @tags_user_tag.each do |key,value| %>
+      <br><%= "#{key}" %> <%= "(#{value})" %>
+    </span>
+    <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin-top:20px; margin-bottom:20px; margin-left:20px;">
+<div class="text-left">
+<%= link_to '戻る', user_path(@user), class:"btn btn-outline-secondary"  %>
+</div>
+</div>
+<%= column_chart @month_record, id: "users-chart", width: "350px", height: "300px" ,xtitle: "月", ytitle: "学習数"%>
+ 
+

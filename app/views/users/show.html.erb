@@ -58,9 +58,25 @@
       <% end %>
      </div>
   </div> 
+ <div style=" margin-left:20px; ">
+  <div class="d-flex">
     <div class="text-left">
-   <%= link_to 'カレンダ一', calendar_user_path(@user) %>
+     <span style="margin:10px;">
+   <%= link_to calendar_user_path(@user),class:"link-secondary" do %>
+   <i class="fa-regular fa-calendar size"></i>
+    <% end %>
+    </span>
     </div>
+     <div class="text-left">
+      <span style="margin:10px;">
+  <%= link_to column_chart_user_path(@user),class:"link-secondary" do %>
+  <i class="fa-solid fa-chart-simple size"></i>
+  <% end %>
+    </span>
+    
+  </div>
+  </div>
+</div>
   </div>
   </div>
 </div>
