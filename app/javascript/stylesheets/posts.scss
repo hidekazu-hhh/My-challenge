@@ -31,3 +31,13 @@ div p {
   border: none;     
   color: #696969;   
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+  background-color: #f8f9fa;
+}

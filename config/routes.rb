@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'static_pages/top'
   get 'static_pages/start_page'
   get 'static_pages/hope'
+  get 'static_pages/terms_of_service'
+  get 'static_pages/privacy_policy'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
