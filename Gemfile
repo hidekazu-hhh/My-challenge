@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
@@ -31,6 +31,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.0'  
   gem 'factory_bot_rails'
+  gem 'letter_opener_web'
 end
 
 group :development do
@@ -48,3 +49,15 @@ gem "net-smtp"
 gem 'psych', '~> 3.1'
 gem 'sorcery'
 gem 'rails-i18n'
+gem 'simple_calendar', '~> 2.0'
+gem 'pry-rails'
+gem 'enum_help'
+gem 'draper'
+gem 'whenever', require: false
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+gem 'ransack'
+gem "chartkick"
+gem "groupdate"

@@ -1,0 +1,26 @@
+<% visiter = notification.visiter %>
+<% post = notification.post %>
+<div id="contents">コンテンツ
+<tr id="comment-"><td style="width: 60px">  
+    <% if visiter.avatar_image.url.present? %>
+        <div class='mt-3 mb-3'>
+          <%= image_tag visiter.avatar_image.url,
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '50x50' %>
+        </div>
+         <% else %>
+         <div class='mt-3 mb-3'>
+         <%= image_pack_tag 'media/images/sample.jpeg',
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '50x50' %>
+        </div>
+      <% end %>
+  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
+  <br><div id="js-comment-"><% if !@comment.nil? %>
+    <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @comment %></p>
+  <% end %>
+    
+</tr>
+</div>

@@ -1,8 +1,9 @@
 <header>
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
-
+   
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%# <%= image_tag 'logo.png' %> %>
+      <%=  'Re-START' %>
+       <%= image_pack_tag 'media/images/rocket3.jpeg' %>
     <% end %>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,25 +21,29 @@
             <%# <%= link_to '', '#', class: 'dropdown-item' %> %> %>
           </div>
         </li>
-
         <li class="nav-item">
-          <%= link_to 'ユーザー', '#', class: 'nav-link' %>
+          <%= link_to user_path(current_user), class: 'nav-link' do %>
+          <i class="fa-solid fa-house-user header"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'ログアウト', logout_path, class: "nav-link", method: :delete %>
+          <%= link_to posts_path, class: 'nav-link' do %>
+          <i class="fa-solid fa-users header"></i>
+           <% end %>
         </li>
-
-        <%# <li class="nav-item dropdown dropdown-slide">
-          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
-            <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15' %>
-          </a>
-          <%# <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item">ユーザー名</div>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %> %> %>
-
-            <%# <%= link_to 'ログアウト', '#', class: 'dropdown-item' %> %>
-          </div>
+       
+        <li>
+        <%= link_to notifications_path, class: "nav-link" do %>
+        </li>
+         <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle icon-bell"></i>
+        <% end %>
+         <i class="fa-solid fa-bell bell"></i>
+         <% end %>
+        <li class="nav-item">
+          <%= link_to logout_path, class: "nav-link", method: :delete do %>
+          <i class="fa-solid fa-arrow-right-from-bracket header" ></i>
+           <% end %>
         </li>
       </ul>
     </div>

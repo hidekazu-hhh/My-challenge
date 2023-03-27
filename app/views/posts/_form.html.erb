@@ -1,0 +1,25 @@
+<div class="col-md-4">
+<div class="form-group">
+  <%= post.label :start_time, '学習日' %><br>
+  <%= post.date_select :start_time, class: 'form-control', rows:'5' %><br>
+</div>
+</div>
+
+<div class="col-md-4">
+   <div class="form-group">
+    <%= post.label :tag, 'タグ' %><br>
+    <%# Edit用に@post.tags.pluck(:name)でタグの配列を取得 %>
+    <%= post.text_field :tag, value: @post.tags.pluck(:name),placeholder:"例: 英語 ", class: 'form-control'  %><br>
+    </div>
+  </div>
+<div class="col-md-7">
+<div class="form-group">
+  <%= post.label :content, '学習内容' %><br>
+  <div class="w-75">
+  <%= post.text_area :content, class: 'form-control',rows:'5'%><br>
+  </div>
+</div>
+</div>
+<div class="col-md-1">
+<%= post.submit '登録する', class:'btn btn-outline-secondary' %>
+</div>

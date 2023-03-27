@@ -18,4 +18,39 @@
       font-size: 2.0rem;
     }
   }
+  .inline-block_test {
+    display: inline-block;      /* インラインブロック要素にする */
 }
+  .inline-block_icon {
+    display: inline-block;  
+  }
+}
+.icon-bell {
+  margin-bottom: 20px;
+  color: gold;
+  
+}
+
+.bell {
+  margin-bottom: 3px;
+  margin-right: 10px;
+  color: gray;
+  font-size:1.5em; 
+}
+
+
+body {
+   margin: 0px;
+   padding: 0px;
+   background-color:white ;
+}
+// .navbar {
+//   margin: 0 auto;
+//   max-width: 600px; /* 好きな値を設定してください。 */
+// }
+// @media (max-width: 599px) {
+//   p {
+//     width: 700px;
+//     font-size: 15px;
+//   }
+// }

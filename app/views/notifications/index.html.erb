@@ -1,0 +1,12 @@
+<h4 class="text-center">通知</h4>
+   
+<% if @notifications.exists? %>
+<div class="row"><div class="col-lg-8 offset-lg-0"><table id="js-table-comment" class="table">
+  <div class="users-index">
+        <%= render @notifications %>
+    </div>
+    </table></div>
+</div>
+<% else %>
+    <p>通知はありません</p>
+<% end %>

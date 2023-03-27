@@ -1,0 +1,68 @@
+
+<div style="margin: 20px; margin-left:20px;">
+  <span style="font-size:15px; margin:2px;">
+   <i class="fa-solid fa-tag size"></i>
+     <%= @tag.name%>
+  </span>
+</div>
+
+<div class="card border-secondary mb-3" style="max-width: 30rem;">
+  <%  @tag_user_posts.each do |post| %>
+    <div class="card-header">
+   <% if post.user.avatar_image.url.present? %>
+        <div class='mt-3 mb-3'>
+          <%= image_tag post.user.avatar_image.url,
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '50x50' %>
+        </div>
+         <% else %>
+         <div class='mt-3 mb-3'>
+         <%= image_pack_tag 'media/images/sample.jpeg',
+                        class: 'rounded-circle',
+                        id: 'preview',
+                        size: '50x50' %>
+        </div>
+      <% end %>
+  <%=link_to  post.user.decorate.full_name, user_path(post.user) %>
+  </div>
+    <div class="card-body text-dark">
+    <p class="card-text"><%= simple_format(post.content)%></p>
+   <br>
+    <br>
+     <%= post.created_at.strftime('%Y/%m/%d') %>
+    <br>
+    <br>
+    <i class="fa-solid fa-tag size"></i>
+     <%= post.tags.map(&:name).join(', ')%>
+    <br>
+     <br>
+    <div class='mr10 float-left'>
+      <span style=" margin-right:10px;">
+        <%= link_to post_path(post) do %>
+        <i class="fa-regular fa-file-lines size"></i>
+      </span>
+      <% end %>
+    </div>
+     <div class='mr10 float-left'>
+    <span style="margin:10px;">
+      <%= link_to post_path(post) do %>
+      <i class="fa-regular fa-comment size"></i>
+    </span>
+    <% end %>
+     <%= post.comments.count %> 
+    </div>
+      
+      
+   <div class='mr10 float-left'>
+    <div id="favorite_btn_<%= post.id %>">
+     <%= render partial: 'favorites/favorite',locals: {post: post} %>
+    </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+    <%#タグに紐づく自身の投稿を全件取得%>
+<%= paginate @tag_user_posts, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

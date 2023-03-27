@@ -1,0 +1,43 @@
+.simple-calendar {
+ .day {
+  border:5px solid whitesmoke;
+  height: 100px;
+  width: 100px;
+ 
+  @media (max-width: 655px) {
+      font-size: 1px;
+  }
+  
+ }
+ .has-events {
+   background: #cfe6f0;
+ }
+}
+
+div p {
+  display: inline-block;
+}
+
+.size{
+  font-size:1.2em; 
+  color:gray;
+}
+
+.header{
+  font-size:1.5em; 
+}
+
+.pagination>li>a {          
+  border: none;     
+  color: #696969;   
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+  background-color: #f8f9fa;
+}
